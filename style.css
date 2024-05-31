@@ -1,0 +1,254 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Lilita+One&family=Poetsen+One&family=Quicksand:wght@300..700&family=Rubik:ital,wght@0,800;1,800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Lilita+One&family=Lobster&family=Poetsen+One&family=Quicksand:wght@300..700&family=Rubik:ital,wght@0,800;1,800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Lexend:wght@100..900&family=Lilita+One&family=Lobster&family=Poetsen+One&family=Quicksand:wght@300..700&family=Rubik:ital,wght@0,800;1,800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Lexend+Tera:wght@100..900&family=Lexend:wght@100..900&family=Lilita+One&family=Lobster&family=Poetsen+One&family=Quicksand:wght@300..700&family=Raleway:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,500;1,500&display=swap");
+
+:root {
+  --bg-color: rgb(84, 175, 255);
+  --text-color: black;
+  --sbg-color: #b2ccde;
+
+  --first-font: "Lobster", sans-serif;
+  --second-font: "Quicksand", sans-serif;
+  --third-font: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  --fourth-font: "Lexend", sans-serif;
+}
+
+.dark-theme {
+  --bg-color: #050c2d;
+  --text-color: white;
+  --sbg-color: rgb(3, 35, 61);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  color: var(--text-color);
+  background-color: var(--bg-color);
+  position: relative;
+}
+.container {
+  margin-left: 200px;
+  width: 800px;
+  display: grid;
+  column-gap: 30px;
+  row-gap: 60px;
+}
+
+.sbg {
+  margin: 0 auto;
+  background-color: var(--sbg-color);
+  width: 1370px;
+  margin-left: 55px;
+  border-radius: 25px;
+}
+
+.theme-toggle {
+  margin-top: 20px;
+  margin-right: 25px;
+  float: right;
+  font-size: 24px; /* Adjust icon size */
+  cursor: pointer;
+}
+#icon {
+  width: 30px;
+}
+
+.input-field {
+  display: flex;
+  gap: 10px;
+}
+
+.task {
+  font-family: var(--second-font);
+  font-optical-sizing: auto;
+  font-style: normal;
+  color: black;
+  display: flex;
+  height: 50px;
+  width: 700px;
+  gap: 10px;
+  margin-bottom: 10px;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #1098ad;
+  background-color: #cedee9;
+  border-radius: 15px;
+}
+
+.Completed-title {
+  padding: 6px;
+  border-radius: 15px;
+  background-color: #cedee9;
+  width: 190px;
+  color: #505050;
+  font-size: 21px;
+  font-family: var(--second-font);
+  font-optical-sizing: auto;
+  font-weight: 0;
+  font-style: normal;
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+
+.Completed-task {
+  display: flex;
+  gap: 10px;
+}
+
+h3 {
+  display: inline-block;
+  width: 500px;
+}
+
+.star {
+  border-color: #1098ad;
+  background-color: rgb(255, 255, 145);
+}
+
+.completed-task {
+  display: flex;
+  height: 50px;
+  width: 500px;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+}
+
+.hidden {
+  display: none;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(3px);
+  z-index: 5;
+}
+
+.modal {
+  font-family: var(--third-font);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 30%;
+  color: #000000;
+  background-color: white;
+  padding: 96px;
+  border-radius: 6px;
+  box-shadow: 0 48px 80px rgba(0, 0, 0, 0.3);
+  z-index: 10;
+}
+
+.close-modal {
+  position: absolute;
+  top: 19.2px;
+  right: 32px;
+  font-size: 50px;
+  color: #333;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+.delete-modal {
+  margin-left: 60px;
+  padding: 4px;
+  background-color: var(--bg-color);
+  color: #ddd;
+  width: 100px;
+  height: 50px;
+  font-size: 15px;
+  border: none;
+  cursor: pointer;
+  text-transform: uppercase;
+  border-radius: 5px;
+}
+
+.delete-modal:hover {
+  color: #444;
+  background-color: #ddd;
+  transition: 0.5s;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.input-field input {
+  outline: none;
+  border: 0;
+  font-family: var(--fourth-font);
+  font-optical-sizing: auto;
+  font-weight: 0;
+  font-style: normal;
+  border-radius: 25px;
+  padding: 8px;
+  outline: none;
+}
+
+.add-button {
+  cursor: pointer;
+  width: 70px;
+}
+
+.time {
+  cursor: pointer;
+}
+
+.add-button:hover {
+  font-weight: 700;
+  transition: 0.3s;
+  background-color: #3662d2;
+  color: #ffffff;
+}
+
+h1 {
+  font-size: 60px;
+  margin-top: 50px;
+  margin-bottom: -18px;
+  letter-spacing: 3;
+  font-family: var(--first-font);
+  font-weight: 400;
+  font-style: normal;
+}
+
+.complete-button {
+  margin-left: 8px;
+}
+
+.buttons {
+  cursor: pointer;
+  width: 50px;
+  height: 25px;
+  border-radius: 20px;
+} /* buttons:- complete , star , edit and delete */
+
+.comp-card {
+  border-radius: 15px;
+  font-size: 15px;
+  width: 700px;
+  font-family: var(--second-font);
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+.comp-name {
+  margin-left: 10px;
+}
+
+.modal-title {
+  font-size: 40px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
